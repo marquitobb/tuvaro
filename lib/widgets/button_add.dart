@@ -20,8 +20,8 @@ class _ButtonAddState extends State<ButtonAdd> {
           context: context, builder: (ctx) => BottomSheetExample()
         );
       },
-      icon: Icon(Icons.add_shopping_cart),
-      label: Text("añadir compra"),
+      icon: Icon(Icons.monetization_on),
+      label: Text("añadir dinero a tu cuenta"),
     );
   }
 }
@@ -45,9 +45,11 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
     http.Response data = await http.get(url);
     if (data.body == "si") {
       print("si actualizo");
+      cant_dinero.text = "";
       Navigator.push(context, MaterialPageRoute(builder: (context) => Principal()));
     }else{
       print("ERROR no jala");
+      cant_dinero.text = "comprueba tu conexion a internet";
     }
   }
   
@@ -69,7 +71,7 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
             children: <Widget>[
               ListTile(
                 title: Text(
-                  'dinero',
+                  'Agrega mas dinero',
                   style: TextStyle(
                     fontSize: 30,
                     color: Colors.blue,
@@ -83,7 +85,7 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   icon: IconButton(icon: Icon(Icons.monetization_on), onPressed: (){}),
-                  labelText: 'ingresa el dinero gastado',
+                  labelText: 'Añadir mas dinero',
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 20)),
@@ -107,8 +109,9 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
                     double sumDinero = dinHayInt+newMoney;
                     String cantnew = sumDinero.toString();
                     print(cantnew);
+                    UpdateMoney(cantnew);
                     setState(() {
-                      UpdateMoney(cantnew);
+                      
                     });
                   },
                 ),

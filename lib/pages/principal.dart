@@ -17,15 +17,15 @@ class Principal extends StatelessWidget {
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return Center(
-                child: Text("no hay datos"),
+                child: Image.asset("assets/bien.gif"),
               );
             } else {
               return Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Tu dinero es de:"),
-                    Text("${snapshot.data}"),
+                    Text("Tu dinero es de:", style: TextStyle(fontSize: 42),),
+                    Text("${snapshot.data}",style: TextStyle(fontSize: 72)),
                     ButtonAdd()
                   ],
                 ),
@@ -36,10 +36,4 @@ class Principal extends StatelessWidget {
       ),
     );
   }
-}
-
-class Name {
-  String din;
-
-  Name(this.din);
 }

@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'package:tuvaro/pages/principal.dart';
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:tuvaro/widgets/futu_money.dart';
 
 class ButtonAdd extends StatefulWidget {
@@ -38,9 +37,11 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
   //TextField controller
   TextEditingController cant_dinero = TextEditingController();
  
-  Future<dynamic> UpdateMoney() async{
+  Future<dynamic> UpdateMoney(String cantnew) async{
+    
     String cant = cant_dinero.text;
-    var url = "http://192.168.1.71:3000/money/update?money=$cant" ;
+    var url = "https://morning-mesa-89802.herokuapp.com/money/update?money=$cantnew" ;
+    //var url = "http://192.168.1.71:3000/money/update?money=$cant" ;
     http.Response data = await http.get(url);
     if (data.body == "si") {
       print("si actualizo");
@@ -99,14 +100,15 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async{
-                    /*var dinHay = await ObtenerMoney();
+                    var dinHay = await ObtenerMoney();
 
                     double dinHayInt = double.parse(dinHay);
                     double newMoney = double.parse(cant_dinero.text);
                     double sumDinero = dinHayInt+newMoney;
-                    print(sumDinero);*/
+                    String cantnew = sumDinero.toString();
+                    print(cantnew);
                     setState(() {
-                      UpdateMoney();
+                      UpdateMoney(cantnew);
                     });
                   },
                 ),

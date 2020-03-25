@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tuvaro/widgets/buttonBuy.dart';
 import 'package:tuvaro/widgets/button_add.dart';
 import 'package:tuvaro/widgets/futu_money.dart';
 
@@ -10,6 +11,7 @@ class Principal extends StatelessWidget {
     return Container(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: true,
           title: Text('tuVaro'),
         ),
         body: FutureBuilder(
@@ -26,7 +28,8 @@ class Principal extends StatelessWidget {
                   children: <Widget>[
                     Text("Tu dinero es de:", style: TextStyle(fontSize: 42),),
                     Text("${snapshot.data}",style: TextStyle(fontSize: 72)),
-                    ButtonAdd()
+                    ButtonAdd(),
+                    ButtonBuy()
                   ],
                 ),
               );

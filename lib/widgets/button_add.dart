@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tuvaro/pages/principal.dart';
 import 'dart:async';
-import 'dart:convert';
 import 'package:tuvaro/widgets/futu_money.dart';
 
 class ButtonAdd extends StatefulWidget {
@@ -33,7 +32,7 @@ class BottomSheetExample extends StatefulWidget {
 
 class _BottomSheetExampleState extends State<BottomSheetExample> {
   // GlobalKey is needed to show bottom sheet.
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   //TextField controller
   TextEditingController cant_dinero = TextEditingController();
  

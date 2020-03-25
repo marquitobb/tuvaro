@@ -7,7 +7,7 @@ class BuyProduct extends StatefulWidget {
 
 class _BuyProductState extends State<BuyProduct> {
   TextEditingController compra = TextEditingController();
-  TextEditingController nom_compra = TextEditingController();
+  TextEditingController nomcompra = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class _BuyProductState extends State<BuyProduct> {
               ),
               Padding(padding: EdgeInsets.all(10)),
               TextField(
-                controller: nom_compra,
+                controller: nomcompra,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),

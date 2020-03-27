@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tuvaro/components/futu_update.dart';
+import 'package:tuvaro/components/futuaddproduct.dart';
+import 'package:tuvaro/widgets/futu_money.dart';
 
 class BuyProduct extends StatefulWidget {
   @override
@@ -16,7 +19,6 @@ class _BuyProductState extends State<BuyProduct> {
       body: Center(
         child: Card(
           borderOnForeground: true,
-
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +35,7 @@ class _BuyProductState extends State<BuyProduct> {
                   border: OutlineInputBorder(),
                   icon: IconButton(
                       icon: Icon(Icons.monetization_on), onPressed: () {}),
-                  labelText: 'Añadir mas dinero',
+                  labelText: 'costo',
                 ),
               ),
               Padding(padding: EdgeInsets.all(10)),
@@ -44,7 +46,7 @@ class _BuyProductState extends State<BuyProduct> {
                   border: OutlineInputBorder(),
                   icon: IconButton(
                       icon: Icon(Icons.add_shopping_cart), onPressed: () {}),
-                  labelText: 'Añadir mas dinero',
+                  labelText: 'nombre de tu compra',
                 ),
               ),
               ButtonBar(
@@ -59,7 +61,14 @@ class _BuyProductState extends State<BuyProduct> {
                   FlatButton(
                     child: const Text('Guardar',
                         style: TextStyle(fontSize: 25, color: Colors.green)),
-                    onPressed: () {/* ... */},
+                    onPressed: () async{
+                      var _dinH = await ObtenerMoney();
+                      double dintotal = double.parse(_dinH);
+                      double restcompra = double.parse(compra.text);
+                      double newrest = dintotal - restcompra;
+                      UpdateM(newrest.toString(),context);
+                      AddProduct(nomcompra.text.toString(),compra.text.toString());
+                    },
                   ),
                 ],
               ),

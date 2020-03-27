@@ -11,7 +11,7 @@ class Principal extends StatelessWidget {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
           title: Text('tuVaro'),
         ),
         body: FutureBuilder(

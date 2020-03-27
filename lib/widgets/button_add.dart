@@ -101,13 +101,14 @@ class _BottomSheetExampleState extends State<BottomSheetExample> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async{
+                    //regresa dinero que hay
                     var dinHay = await ObtenerMoney();
-
+                    //realiza la suma de lo agregado
                     double dinHayInt = double.parse(dinHay);
                     double newMoney = double.parse(cant_dinero.text);
                     double sumDinero = dinHayInt+newMoney;
                     String cantnew = sumDinero.toString();
-                    print(cantnew);
+                    //agregar el resultado de la suma
                     UpdateMoney(cantnew);
                     setState(() {
                       
